@@ -1,0 +1,22 @@
+diff --git a/node_modules/react-native-sound-level/ios/RNSoundLevelModule.m b/node_modules/react-native-sound-level/ios/RNSoundLevelModule.m
+index c48631d..091dd7b 100644
+--- a/node_modules/react-native-sound-level/ios/RNSoundLevelModule.m
++++ b/node_modules/react-native-sound-level/ios/RNSoundLevelModule.m
+@@ -62,7 +62,7 @@ - (void)startProgressTimer:(int)monitorInterval {
+   [_progressUpdateTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+ }
+ 
+-RCT_EXPORT_METHOD(start:(int)monitorInterval samplingRate:(float)sampleRate)
++RCT_EXPORT_METHOD(start:(int)monitorInterval sampleRate:(float)sampleRate)
+ {
+   NSLog(@"Start Monitoring");
+   _prevProgressUpdateTime = nil;
+@@ -72,7 +72,7 @@ - (void)startProgressTimer:(int)monitorInterval {
+           [NSNumber numberWithInt:AVAudioQualityLow], AVEncoderAudioQualityKey,
+           [NSNumber numberWithInt:kAudioFormatMPEG4AAC], AVFormatIDKey,
+           [NSNumber numberWithInt:1], AVNumberOfChannelsKey,
+-          [NSNumber numberWithFloat:samplingRate], AVSampleRateKey,
++          [NSNumber numberWithFloat:sampleRate], AVSampleRateKey,
+           nil];
+ 
+   NSError *error = nil;
